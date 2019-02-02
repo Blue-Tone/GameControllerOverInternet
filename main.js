@@ -68,16 +68,22 @@ function keyup() {
 
 /** キーイベント表示 */
 function showKeyEvent(e) {
-  target = document.getElementById("key_event");
-  let type = "";
-  if("keydown" == e.type) t = "Down"
-  if("keyup" == e.type) t = "Up__"
-  let str = t + " key=" + e.key + " | code=" + e.code ;
-  events.push(str);
-  if(10 < events.length){
-    events.shift()
+  if("a" == e.key || "s" == e.key ||
+     "d" == e.key || "w" == e.key ||
+     "ArrowLeft" == e.key ||
+     "ArrowRight" == e.key)
+  {    
+    target = document.getElementById("key_event");
+    let type = "";
+    if("keydown" == e.type) t = "Down"
+    if("keyup" == e.type) t = "Up__"
+    let str = t + " key=" + e.key + " | code=" + e.code ;
+    events.push(str);
+    if(10 < events.length){
+      events.shift()
+    }
+    target.innerHTML = events.join("</br>");
   }
-  target.innerHTML = events.join("</br>");
 }
 
 /**
