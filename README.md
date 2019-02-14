@@ -1,29 +1,30 @@
 # GameController　Over　Internet
 ミニファミコンをインターネット経由で操作するプロジェクト
 
-システム構成図：
+```
+システム構成図：  
 doc/ネット対戦ファミコンシステム構成.jpg
 
-写真：
+写真：  
 imgフォルダ内
 
-動画：
+動画：  
 https://youtu.be/0baT9exxElA
 
-使い方:
+使い方:  
 https://blue-tone.github.io/GameControllerOverInternet/
 にアクセスして、obnizIdを入力する。
 (IDを固定にするには、ページをローカルに保存して、main.jsのobnizIdに設定する。)
 
 
-doc:
+doc:  
 アクリル板の加工データ：
 	・ミニファミコンレーザー.ai
 		推奨厚：5mm(下から2枚目のみ3mm)
 	・電装ケース.ai
 		推奨厚：3mm
 
-パーツ：
+パーツ：  
 	・制御部
 	タカハ機工 CBS0730	プッシュソレノイド
 	アクリル板	5mm、3mm
@@ -49,3 +50,4 @@ doc:
 	B 左カーソル
 
 
+```
