@@ -1,6 +1,12 @@
 // define your obniz id
 let obnizId="";
 
+// URL引数があれば、IDを設定する。
+// /index.html?id=xxxxxxxx
+if(location.search){
+  obnizId=location.search.replace("?id=","");
+}
+
 ///////////// obniz処理 /////////////// 
 if("" === obnizId){
   // 入力ダイアログを表示
@@ -157,6 +163,21 @@ $(function(){
     pushKey(id, UP)
     $(this).removeClass("push");
   })
+  .touchstart(function(){
+    const id =  $(this).attr("id");
+    console.log("touchstart :" + id);
+    pushKey(id, DOWN)
+    $(this).addClass("push");
+  })
+  .touchend(function(){
+    const id =  $(this).attr("id");
+    console.log("touchend :" + id);
+    pushKey(id, UP)
+    $(this).removeClass("push");
+  })
+
+
+
 });
 
 
