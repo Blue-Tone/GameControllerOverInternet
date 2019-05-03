@@ -163,21 +163,18 @@ $(function(){
     pushKey(id, UP)
     $(this).removeClass("push");
   })
-  .touchstart(function(){
+  .ontouchstart(function(){
     const id =  $(this).attr("id");
-    console.log("touchstart :" + id);
+    console.log("ontouchstart :" + id);
     pushKey(id, DOWN)
     $(this).addClass("push");
   })
-  .touchend(function(){
+  .ontouchend(function(){
     const id =  $(this).attr("id");
-    console.log("touchend :" + id);
+    console.log("ontouchend :" + id);
     pushKey(id, UP)
     $(this).removeClass("push");
   })
-
-
-
 });
 
 
