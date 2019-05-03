@@ -142,5 +142,21 @@ function pushKey(key, action){
   return id;
 }
 
+// マウスオーバー、マウスアウト イベント
+$(function(){
+  $('button')
+  .mouseover(function(){
+    const id =  $(this).attr("id");
+    console.log("mouseover:" + id);
+    pushKey(id, DOWN)
+    $(this).addClass("push");
+  })
+  .mouseout(function(){
+    const id =  $(this).attr("id");
+    console.log("mouseout :" + id);
+    pushKey(id, UP)
+    $(this).removeClass("push");
+  })
+});
 
 
