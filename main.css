@@ -9,6 +9,14 @@
 }
 
 button{
+	/* 見た目を四角にする */
 	-webkit-appearance: none;
 	border-radius: 0;
+
+	/* 選択不可にする */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer */
+	-khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+	-webkit-user-select: none; /* Chrome, Safari, and Opera */
+	-webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
