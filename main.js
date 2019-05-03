@@ -148,40 +148,46 @@ function pushKey(key, action){
   return id;
 }
 
+var isTouch = ('ontouchstart' in window);
+
 // マウスオーバー、マウスアウト イベント
 $(function(){
-  $('button')
-  .mouseover(function(){
-    const id =  $(this).attr("id");
-    console.log("mouseover:" + id);
-    pushKey(id, DOWN)
-    $(this).addClass("push");
-  })
-  .mouseout(function(){
-    const id =  $(this).attr("id");
-    console.log("mouseout :" + id);
-    pushKey(id, UP)
-    $(this).removeClass("push");
-  })
-  .bind({
-    'touchstart mousedown': function(e) {
+  if(isTouch){
+    $('button')
+    .bind({
+      'touchstart mousedown': function(e) {
+        const id =  $(this).attr("id");
+        console.log("ontouchstart :" + id);
+        pushKey(id, DOWN)
+        $(this).addClass("push");
+        e.preventDefault();
+      },
+      'touchmove mousemove': function(e) {
+        e.preventDefault();
+      },
+      'touchend mouseup': function(e) {
+        const id =  $(this).attr("id");
+        console.log("touchend :" + id);
+        pushKey(id, UP)
+        $(this).removeClass("push");
+        e.preventDefault();
+      }
+    });
+  }else{
+    $('button')
+    .mouseover(function(){
       const id =  $(this).attr("id");
-      console.log("ontouchstart :" + id);
+      console.log("mouseover:" + id);
       pushKey(id, DOWN)
       $(this).addClass("push");
-      e.preventDefault();
-    },
-    'touchmove mousemove': function(e) {
-      e.preventDefault();
-    },
-    'touchend mouseup': function(e) {
+    })
+    .mouseout(function(){
       const id =  $(this).attr("id");
-      console.log("touchend :" + id);
+      console.log("mouseout :" + id);
       pushKey(id, UP)
       $(this).removeClass("push");
-      e.preventDefault();
-    }
-  });
+    })
+  }
 });
 
 
