@@ -163,18 +163,25 @@ $(function(){
     pushKey(id, UP)
     $(this).removeClass("push");
   })
-  .ontouchstart(function(){
-    const id =  $(this).attr("id");
-    console.log("ontouchstart :" + id);
-    pushKey(id, DOWN)
-    $(this).addClass("push");
-  })
-  .ontouchend(function(){
-    const id =  $(this).attr("id");
-    console.log("ontouchend :" + id);
-    pushKey(id, UP)
-    $(this).removeClass("push");
-  })
+  .bind({
+    'touchstart mousedown': function(e) {
+      const id =  $(this).attr("id");
+      console.log("ontouchstart :" + id);
+      pushKey(id, DOWN)
+      $(this).addClass("push");
+      e.preventDefault();
+    },
+    'touchmove mousemove': function(e) {
+      e.preventDefault();
+    },
+    'touchend mouseup': function(e) {
+      const id =  $(this).attr("id");
+      console.log("touchend :" + id);
+      pushKey(id, UP)
+      $(this).removeClass("push");
+      e.preventDefault();
+    }
+  });
 });
 
 
